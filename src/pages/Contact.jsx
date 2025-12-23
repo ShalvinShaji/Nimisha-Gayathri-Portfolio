@@ -27,12 +27,12 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="bg-neutral-900 min-h-screen py-20 md:py-32 relative border-t border-white/5 overflow-hidden">
+    <section id="contact" className="bg-neutral-900 min-h-screen py-24 md:py-40 relative border-t border-white/5 overflow-hidden">
       <div className="container-custom">
           
           {/* Header - Layered Style (Full Width) */}
-          <div className="mb-16 md:mb-24 relative">
-              <span className="block text-[18vw] md:text-[12rem] text-white/5 font-display font-bold absolute -top-16 md:-top-24 -left-4 select-none pointer-events-none whitespace-nowrap">
+          <div className="mb-20 md:mb-32 relative">
+              <span className="block text-[15vw] md:text-[12rem] text-white/5 font-display font-bold absolute -top-16 md:-top-24 -left-4 select-none pointer-events-none whitespace-nowrap">
                 Contact
               </span>
               <motion.div 
@@ -41,7 +41,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 className="relative z-10 pl-2 md:pl-4"
               >
-                <h1 className="text-[10vw] md:text-7xl font-display font-medium text-white mb-2 tracking-tight leading-none">
+                <h1 className="text-5xl md:text-7xl font-display font-medium text-white mb-2 tracking-tight leading-none">
                     The <span className="text-crimson-500 italic font-serif">Signature</span>
                 </h1>
                   <p className="text-neutral-400 font-mono text-xs md:text-sm tracking-widest uppercase">

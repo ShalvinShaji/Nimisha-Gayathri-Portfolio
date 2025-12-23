@@ -24,31 +24,27 @@ const Home = () => {
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="z-10 text-center relative px-6"
           >
-            <div className="mb-6 flex justify-center items-center gap-4">
+            <h1 className="text-7xl md:text-8xl lg:text-[9vw] xl:text-[8vw] font-display font-medium text-white tracking-tighter leading-[0.85] mb-6 md:mb-10 text-gradient-crimson mix-blend-color-dodge lg:whitespace-nowrap">
+              {content.hero.title}
+            </h1>
+            
+            <div className="flex justify-center items-center gap-2 md:gap-6">
                 <motion.div 
                   initial={{ width: 0 }} 
-                  animate={{ width: 60 }} 
+                  animate={{ width: 40, md: 60 }} 
                   transition={{ delay: 0.5, duration: 1 }}
                   className="h-px bg-crimson-500" 
                 />
-                <span className="text-crimson-500 uppercase tracking-[0.4em] text-xs font-medium">
-                  Kerala • India
-                </span>
+                <p className="text-neutral-300 font-sans font-medium text-[10px] sm:text-xs md:text-base uppercase tracking-[0.3em] md:tracking-[0.5em] leading-relaxed whitespace-nowrap">
+                  {content.hero.subtitle}
+                </p>
                 <motion.div 
                   initial={{ width: 0 }} 
-                  animate={{ width: 60 }} 
+                  animate={{ width: 40, md: 60 }} 
                   transition={{ delay: 0.5, duration: 1 }}
                   className="h-px bg-crimson-500" 
                 />
             </div>
-            
-            <h1 className="text-[12vw] md:text-9xl font-display font-medium text-white tracking-tighter leading-none mb-6 md:mb-8 text-gradient-crimson mix-blend-color-dodge">
-              {content.hero.title}
-            </h1>
-            
-            <p className="max-w-xl mx-auto text-neutral-300 font-sans font-light text-lg leading-relaxed tracking-wide">
-              {content.hero.subtitle}
-            </p>
           </motion.div>
 
            {/* Scroll Hint */}
@@ -56,7 +52,7 @@ const Home = () => {
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              transition={{ delay: 2, duration: 1 }}
-             className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 group cursor-pointer"
+             className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 group cursor-pointer"
              onClick={() => window.location.href='#works'}
            >
              <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 group-hover:text-crimson-500 transition-colors">Explore</span>
@@ -80,7 +76,7 @@ const Home = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
-                  className="text-3xl md:text-6xl font-display leading-tight text-neutral-50"
+                  className="text-4xl md:text-6xl font-display leading-tight text-neutral-50"
                 >
                   We craft <span className="text-crimson-500 italic font-serif">silence</span> amidst the chaos. 
                   Structures that do not just inhabit space, but <span className="stroke-text-crimson">define it</span>.

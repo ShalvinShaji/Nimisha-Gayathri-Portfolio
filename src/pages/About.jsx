@@ -3,12 +3,12 @@ import { content } from '../data/content';
 
 const About = () => {
   return (
-    <section id="about" className="bg-neutral-900 min-h-screen py-20 md:py-32 border-t border-white/5 overflow-hidden">
+    <section id="about" className="bg-neutral-900 min-h-screen py-24 md:py-40 border-t border-white/5 overflow-hidden">
       <div className="container-custom">
         
         {/* Header */}
-        <div className="mb-16 md:mb-24 relative">
-             <span className="block text-[18vw] md:text-[12rem] text-white/5 font-display font-bold absolute -top-16 md:-top-20 -left-6 md:-left-10 select-none pointer-events-none whitespace-nowrap">
+        <div className="mb-20 md:mb-32 relative">
+             <span className="block text-[15vw] md:text-[12rem] text-white/5 font-display font-bold absolute -top-16 md:-top-24 -left-4 select-none pointer-events-none whitespace-nowrap">
                Profile
              </span>
              <motion.div 
@@ -17,7 +17,7 @@ const About = () => {
                viewport={{ once: true }}
                className="relative z-10 pl-2 md:pl-4"
              >
-                <h1 className="text-[10vw] md:text-7xl font-display font-medium text-white mb-2 tracking-tight leading-none">
+                <h1 className="text-5xl md:text-7xl font-display font-medium text-white mb-2 tracking-tight leading-none">
                   The <span className="text-crimson-500 italic font-serif">Narrative</span>
                 </h1>
                 <p className="text-neutral-400 font-mono text-xs md:text-sm tracking-widest max-w-md">
@@ -34,11 +34,11 @@ const About = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="text-2xl md:text-4xl font-display leading-tight text-white font-light"
+                className="text-3xl md:text-4xl font-display leading-tight text-white font-light"
               >
                   "{content.philosophy.longQuote}"
               </motion.h2>
-              <div className="text-neutral-300 space-y-6 leading-relaxed font-sans text-lg font-light text-justify">
+              <div className="text-neutral-300 space-y-6 leading-relaxed font-sans text-base md:text-lg font-light text-justify">
                   {content.philosophy.bio.map((paragraph, i) => (
                     <p key={i}>{paragraph}</p>
                   ))}
@@ -47,7 +47,7 @@ const About = () => {
               <div className="pt-12 border-t border-white/10 grid grid-cols-2 lg:grid-cols-3 gap-12">
                   {content.stats.map((stat, i) => (
                     <div key={i}>
-                        <span className="block text-5xl font-display text-crimson-500 mb-2">{stat.value}</span>
+                        <span className="block text-4xl md:text-5xl font-display text-crimson-500 mb-2">{stat.value}</span>
                         <span className="text-xs uppercase tracking-widest text-neutral-500">{stat.label}</span>
                     </div>
                   ))}

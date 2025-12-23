@@ -54,7 +54,7 @@ const ProjectDetail = () => {
                 </span>
               </div>
               
-              <h1 className="text-6xl md:text-8xl lg:text-[8vw] font-display text-white font-light tracking-tighter leading-[0.85] mb-8">
+              <h1 className="text-5xl md:text-8xl lg:text-[8vw] font-display text-white font-light tracking-tighter leading-[0.85] mb-8">
                 {project.title.split(' ').map((word, i) => (
                   <span key={i} className="block">{word}</span>
                 ))}
@@ -90,7 +90,7 @@ const ProjectDetail = () => {
               
               {/* Glassmorphism Subtle Signature Overlay */}
               <div className="absolute top-0 right-0 p-8 z-20">
-                <span className="text-[10rem] font-display font-bold text-white/5 select-none pointer-events-none">
+                <span className="text-7xl md:text-[10rem] font-display font-bold text-white/5 select-none pointer-events-none">
                   (0{project.id})
                 </span>
               </div>
