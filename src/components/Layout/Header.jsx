@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -45,7 +47,7 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-12">
             {navList.map(item => (
-              <NavItem key={item.title} href={item.href}>{item.title}</NavItem>
+              <NavItem key={item.title} href={isHome ? item.href : `/${item.href}`}>{item.title}</NavItem>
             ))}
           </nav>
 
@@ -71,17 +73,21 @@ const Header = () => {
           >
             <nav className="flex flex-col items-center gap-10">
               {navList.map((item, i) => (
-                <motion.a
+                <Link
                   key={item.title}
-                  href={item.href}
+                  to={isHome ? item.href : `/${item.href}`}
                   onClick={() => setIsOpen(false)}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + (i * 0.1) }}
-                  className="text-4xl font-display text-white hover:text-crimson-500 transition-colors"
+                  className="block"
                 >
-                  {item.title}
-                </motion.a>
+                  <motion.span
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + (i * 0.1) }}
+                    className="text-4xl font-display text-white hover:text-crimson-500 transition-colors inline-block"
+                  >
+                    {item.title}
+                  </motion.span>
+                </Link>
               ))}
             </nav>
             
@@ -105,13 +111,28 @@ const Header = () => {
   );
 };
 
-const NavItem = ({ href, children }) => (
-  <a 
-    href={href} 
-    className="relative text-sm uppercase tracking-[0.2em] font-medium text-neutral-400 transition-colors hover:text-crimson-400 font-sans"
-  >
-      {children}
-  </a>
-);
+const NavItem = ({ href, children }) => {
+  const isHash = href.startsWith('#') || href.includes('#');
+  
+  if (isHash && !href.startsWith('/')) {
+    return (
+      <a 
+        href={href} 
+        className="relative text-sm uppercase tracking-[0.2em] font-medium text-neutral-400 transition-colors hover:text-crimson-400 font-sans"
+      >
+          {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link 
+      to={href} 
+      className="relative text-sm uppercase tracking-[0.2em] font-medium text-neutral-400 transition-colors hover:text-crimson-400 font-sans"
+    >
+        {children}
+    </Link>
+  );
+};
 
 export default Header;
